@@ -1,9 +1,8 @@
 package org.igniterealtime.restclient.entity;
 
-import java.util.List;
-
-import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
+
+import java.util.List;
 
 /**
  * The Class UserEntities.
@@ -36,7 +35,6 @@ public class UserEntities {
 	 *
 	 * @return the users
 	 */
-	@XmlElement(name = "user")
 	public List<UserEntity> getUsers() {
 		return users;
 	}
