@@ -1,9 +1,9 @@
 package org.igniterealtime.restclient.entity;
 
-import java.util.List;
-
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
+
+import java.util.List;
 
 /**
  * The Class RosterEntities.
@@ -12,7 +12,7 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 public class RosterEntities {
 
 	/** The roster. */
-	List<RosterItemEntity> roster;
+	List<RosterItemEntity> rosterItem;
 
 	/**
 	 * Instantiates a new roster entities.
@@ -28,7 +28,7 @@ public class RosterEntities {
 	 *            the roster
 	 */
 	public RosterEntities(List<RosterItemEntity> roster) {
-		this.roster = roster;
+		this.rosterItem = roster;
 	}
 
 	/**
@@ -37,8 +37,8 @@ public class RosterEntities {
 	 * @return the roster
 	 */
 	@XmlElement(name = "rosterItem")
-	public List<RosterItemEntity> getRoster() {
-		return roster;
+	public List<RosterItemEntity> getRosterItem() {
+		return rosterItem;
 	}
 
 	/**
@@ -47,8 +47,9 @@ public class RosterEntities {
 	 * @param roster
 	 *            the new roster
 	 */
-	public void setRoster(List<RosterItemEntity> roster) {
-		this.roster = roster;
+
+	public void setRosterItem(List<RosterItemEntity> roster) {
+		this.rosterItem = roster;
 	}
 
 }
