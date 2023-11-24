@@ -1,26 +1,12 @@
 package org.igniterealtime.restclient;
 
-import java.util.HashMap;
-import java.util.Map;
+import org.igniterealtime.restclient.RestClient.RestClientBuilder;
+import org.igniterealtime.restclient.entity.*;
+import org.igniterealtime.restclient.enums.SupportedMediaType;
 
 import javax.ws.rs.core.Response;
-
-import org.igniterealtime.restclient.RestClient.RestClientBuilder;
-import org.igniterealtime.restclient.entity.AuthenticationToken;
-import org.igniterealtime.restclient.entity.GroupEntities;
-import org.igniterealtime.restclient.entity.GroupEntity;
-import org.igniterealtime.restclient.entity.MUCRoomEntities;
-import org.igniterealtime.restclient.entity.MUCRoomEntity;
-import org.igniterealtime.restclient.entity.ParticipantEntities;
-import org.igniterealtime.restclient.entity.RosterEntities;
-import org.igniterealtime.restclient.entity.RosterItemEntity;
-import org.igniterealtime.restclient.entity.SessionEntities;
-import org.igniterealtime.restclient.entity.SystemProperties;
-import org.igniterealtime.restclient.entity.SystemProperty;
-import org.igniterealtime.restclient.entity.UserEntities;
-import org.igniterealtime.restclient.entity.UserEntity;
-import org.igniterealtime.restclient.entity.UserGroupsEntity;
-import org.igniterealtime.restclient.enums.SupportedMediaType;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * The Class RestApiClient.
@@ -660,6 +646,16 @@ public class RestApiClient {
 	}
 
 	/**
+	 * Get the MessageArchive
+	 * @param jid
+	 * @return
+	 */
+	public MessageArchiveEntities getMessageArchive(String jid){
+		return restClient.get("archive/messages/unread/"+ jid, MessageArchiveEntities.class, new HashMap<>());
+	}
+
+
+	/**
 	 * Creates the group.
 	 *
 	 * @param group
@@ -742,6 +738,9 @@ public class RestApiClient {
 	public Response deleteRosterEntry(String username, String jid) {
 		return restClient.delete("users/" + username + "/roster/" + jid, new HashMap<>());
 	}
+
+
+
 
 	/**
 	 * Gets the rest client.
