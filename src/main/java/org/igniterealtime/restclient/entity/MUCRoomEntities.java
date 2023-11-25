@@ -1,27 +1,27 @@
 package org.igniterealtime.restclient.entity;
 
-import java.util.List;
-
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement(name = "chatRooms")
+import java.util.List;
+
+@XmlRootElement
 public class MUCRoomEntities {
-	List<MUCRoomEntity> mucRooms;
+	List<MUCRoomEntity> chatRooms;
 
 	public MUCRoomEntities() {
 	}
 
 	public MUCRoomEntities(List<MUCRoomEntity> mucRooms) {
-		this.mucRooms = mucRooms;
+		this.chatRooms = mucRooms;
 	}
 
-	@XmlElement(name = "chatRoom")
-	public List<MUCRoomEntity> getMucRooms() {
-		return mucRooms;
+	@XmlElement(name = "chatRooms")
+	public List<MUCRoomEntity> getChatRooms() {
+		return chatRooms;
 	}
 
-	public void setMucRooms(List<MUCRoomEntity> mucRooms) {
-		this.mucRooms = mucRooms;
+	public void setChatRooms(List<MUCRoomEntity> mucRooms) {
+		this.chatRooms = mucRooms;
 	}
 }
