@@ -1,17 +1,17 @@
 package org.igniterealtime.restclient.entity;
 
-import java.util.List;
-
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementWrapper;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import jakarta.xml.bind.annotation.XmlType;
 
+import java.util.List;
+
 /**
  * The Class UserEntity.
  */
 @XmlRootElement(name = "user")
-@XmlType(propOrder = { "username", "name", "email", "password", "properties" })
+@XmlType(propOrder = { "username", "name", "email", "password", "online", "properties" })
 public class UserEntity {
 
 	/** The username. */
@@ -25,6 +25,8 @@ public class UserEntity {
 
 	/** The password. */
 	private String password;
+
+	private boolean online;
 
 	/** The properties. */
 	private List<UserProperty> properties;
@@ -49,6 +51,14 @@ public class UserEntity {
 		this.name = name;
 		this.email = email;
 		this.password = password;
+	}
+
+	public void setOnline(boolean online) {
+		this.online = online;
+	}
+
+	public boolean isOnline() {
+		return online;
 	}
 
 	/**
