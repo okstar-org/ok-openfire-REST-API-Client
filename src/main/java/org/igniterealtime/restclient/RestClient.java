@@ -1,37 +1,21 @@
 package org.igniterealtime.restclient;
 
-import java.net.URI;
-import java.security.KeyManagementException;
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
-import java.security.cert.X509Certificate;
-import java.util.Map;
-
-import javax.net.ssl.HostnameVerifier;
-import javax.net.ssl.HttpsURLConnection;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLSession;
-import javax.net.ssl.TrustManager;
-import javax.net.ssl.X509TrustManager;
-import javax.ws.rs.ClientErrorException;
-import javax.ws.rs.HttpMethod;
-import javax.ws.rs.NotAuthorizedException;
-import javax.ws.rs.WebApplicationException;
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.Entity;
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.HttpHeaders;
-import javax.ws.rs.core.MultivaluedHashMap;
-import javax.ws.rs.core.MultivaluedMap;
-import javax.ws.rs.core.Response;
-import javax.ws.rs.core.Response.Status;
-import javax.ws.rs.ext.ContextResolver;
-
+import jakarta.ws.rs.ClientErrorException;
+import jakarta.ws.rs.HttpMethod;
+import jakarta.ws.rs.NotAuthorizedException;
+import jakarta.ws.rs.WebApplicationException;
+import jakarta.ws.rs.client.Client;
+import jakarta.ws.rs.client.ClientBuilder;
+import jakarta.ws.rs.client.Entity;
+import jakarta.ws.rs.client.WebTarget;
+import jakarta.ws.rs.core.HttpHeaders;
+import jakarta.ws.rs.core.MultivaluedHashMap;
+import jakarta.ws.rs.core.MultivaluedMap;
+import jakarta.ws.rs.core.Response;
+import jakarta.ws.rs.ext.ContextResolver;
 import org.eclipse.persistence.jaxb.JAXBContextProperties;
 import org.glassfish.jersey.client.ClientConfig;
 import org.glassfish.jersey.client.ClientProperties;
-import org.glassfish.jersey.internal.util.Base64;
 import org.glassfish.jersey.moxy.json.MoxyJsonConfig;
 import org.glassfish.jersey.moxy.json.MoxyJsonFeature;
 import org.glassfish.jersey.moxy.xml.MoxyXmlFeature;
@@ -41,6 +25,15 @@ import org.igniterealtime.restclient.enums.SupportedMediaType;
 import org.igniterealtime.restclient.exception.ErrorResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import javax.net.ssl.*;
+import java.net.URI;
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.security.cert.X509Certificate;
+import java.util.Base64;
+import java.util.Map;
 
 /**
  * The Class RestClient.
@@ -212,16 +205,16 @@ public final class RestClient {
 	 * @return true, if is status code ok
 	 */
 	private boolean isStatusCodeOK(Response response, String uri) {
-		if (response.getStatus() == Status.OK.getStatusCode()
-				|| response.getStatus() == Status.CREATED.getStatusCode()) {
+		if (response.getStatus() == Response.Status.OK.getStatusCode()
+				|| response.getStatus() == Response.Status.CREATED.getStatusCode()) {
 			return true;
-		} else if (response.getStatus() == Status.UNAUTHORIZED.getStatusCode()) {
+		} else if (response.getStatus() == Response.Status.UNAUTHORIZED.getStatusCode()) {
 			throw new NotAuthorizedException("UNAUTHORIZED: Your credentials are wrong. "
 					+ "Please check your username/password or the secret key.", response);
-		} else if (response.getStatus() == Status.CONFLICT.getStatusCode()
-				|| response.getStatus() == Status.NOT_FOUND.getStatusCode()
-				|| response.getStatus() == Status.FORBIDDEN.getStatusCode()
-				|| response.getStatus() == Status.BAD_REQUEST.getStatusCode()) {
+		} else if (response.getStatus() == Response.Status.CONFLICT.getStatusCode()
+				|| response.getStatus() == Response.Status.NOT_FOUND.getStatusCode()
+				|| response.getStatus() == Response.Status.FORBIDDEN.getStatusCode()
+				|| response.getStatus() == Response.Status.BAD_REQUEST.getStatusCode()) {
 			ErrorResponse errorResponse = response.readEntity(ErrorResponse.class);
 			throw new ClientErrorException(errorResponse.toString(), response);
 		} else {
@@ -412,7 +405,7 @@ public final class RestClient {
 			if (token.getAuthMode() == AuthenticationMode.SHARED_SECRET_KEY) {
 				headers.add(HttpHeaders.AUTHORIZATION, token.getSharedSecretKey());
 			} else if (token.getAuthMode() == AuthenticationMode.BASIC_AUTH) {
-				String base64 = Base64.encodeAsString(token.getUsername() + ":" + token.getPassword());
+				String base64 = Base64.getEncoder().encodeToString((token.getUsername() + ":" + token.getPassword()).getBytes());
 				headers.add(HttpHeaders.AUTHORIZATION, "Basic " + base64);
 			}
 

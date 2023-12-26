@@ -17,9 +17,9 @@
 	</licenses>
 
 	<parent>
-		<groupId>org.sonatype.oss</groupId>
-		<artifactId>oss-parent</artifactId>
-		<version>7</version>
+		<groupId>org.okstar.platform</groupId>
+		<artifactId>thirdparty</artifactId>
+		<version>${revision}</version>
 	</parent>
 
 	<scm>
@@ -39,14 +39,15 @@
 	<properties>
 		<maven.surefire.report.plugin.version>2.22.2</maven.surefire.report.plugin.version>
 		<maven.javadoc.plugin.version>2.10.4</maven.javadoc.plugin.version>
-		<jersey.version>2.24.1</jersey.version>
-		<xml.version>4.0.0</xml.version>
+		<jersey.version>3.1.1</jersey.version>
+		<xml.version>4.0.1</xml.version>
 		<maven.compiler.source>17</maven.compiler.source>
 		<maven.compiler.target>17</maven.compiler.target>
 		<slf4j.version>1.7.36</slf4j.version>
 	</properties>
 
 	<dependencies>
+
 		<dependency>
 			<groupId>org.glassfish.jersey.core</groupId>
 			<artifactId>jersey-client</artifactId>
