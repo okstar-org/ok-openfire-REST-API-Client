@@ -39,7 +39,7 @@
 	<properties>
 		<maven.surefire.report.plugin.version>2.22.2</maven.surefire.report.plugin.version>
 		<maven.javadoc.plugin.version>2.10.4</maven.javadoc.plugin.version>
-		<jersey.version>3.1.1</jersey.version>
+		<jersey.version>3.1.5</jersey.version>
 		<xml.version>4.0.1</xml.version>
 		<maven.compiler.source>17</maven.compiler.source>
 		<maven.compiler.target>17</maven.compiler.target>
