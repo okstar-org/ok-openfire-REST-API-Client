@@ -1,9 +1,9 @@
 package org.igniterealtime.restclient.entity;
 
-import java.util.List;
-
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
+
+import java.util.List;
 
 @XmlRootElement(name = "participants")
 public class ParticipantEntities {
@@ -16,7 +16,7 @@ public class ParticipantEntities {
 		this.participants = participants;
 	}
 
-	@XmlElement(name = "participant")
+	@XmlElement(name = "participants")
 	public List<ParticipantEntity> getParticipants() {
 		return participants;
 	}
