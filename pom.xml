@@ -43,7 +43,7 @@
 		<xml.version>4.0.1</xml.version>
 		<maven.compiler.source>17</maven.compiler.source>
 		<maven.compiler.target>17</maven.compiler.target>
-		<slf4j.version>1.7.36</slf4j.version>
+		<slf4j.version>2.0.6</slf4j.version>
 	</properties>
 
 	<dependencies>
