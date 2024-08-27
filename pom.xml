@@ -16,12 +16,6 @@
 		</license>
 	</licenses>
 
-	<parent>
-		<groupId>org.okstar.platform</groupId>
-		<artifactId>thirdparty</artifactId>
-		<version>${revision}</version>
-	</parent>
-
 	<scm>
 		<connection>scm:git:git://github.com/igniterealtime/REST-API-Client</connection>
 		<developerConnection>scm:git:git://github.com/igniterealtime/REST-API-Client</developerConnection>
@@ -79,6 +73,11 @@
 			<version>${xml.version}</version>
 			<scope>runtime</scope>
 		</dependency>
+		<dependency>
+			<groupId>jakarta.ws.rs</groupId>
+			<artifactId>jakarta.ws.rs-api</artifactId>
+			<version>3.1.0</version>
+		</dependency>
 	</dependencies>
 
 	<repositories>
@@ -88,7 +87,7 @@
 		</repository>
 		<repository>
 			<id>mvnrepository</id>
-			<url>http://repo1.maven.org/maven2</url>
+			<url>https://repo1.maven.org/maven2</url>
 			<snapshots>
 				<enabled>false</enabled>
 			</snapshots>
@@ -98,16 +97,16 @@
 		</repository>
 	</repositories>
 
-	<distributionManagement>
-		<snapshotRepository>
-			<id>ossrh</id>
-			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
-		</snapshotRepository>
-		<repository>
-			<id>ossrh</id>
-			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-		</repository>
-	</distributionManagement>
+<!--	<distributionManagement>-->
+<!--		<snapshotRepository>-->
+<!--			<id>ossrh</id>-->
+<!--			<url>https://oss.sonatype.org/content/repositories/snapshots</url>-->
+<!--		</snapshotRepository>-->
+<!--		<repository>-->
+<!--			<id>ossrh</id>-->
+<!--			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>-->
+<!--		</repository>-->
+<!--	</distributionManagement>-->
 
 	<profiles>
 		<profile>
