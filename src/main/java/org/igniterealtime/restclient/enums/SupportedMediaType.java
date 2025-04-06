@@ -1,5 +1,6 @@
 package org.igniterealtime.restclient.enums;
 
+
 import jakarta.ws.rs.core.MediaType;
 
 public enum SupportedMediaType {

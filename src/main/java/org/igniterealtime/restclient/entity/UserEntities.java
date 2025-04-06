@@ -1,5 +1,6 @@
 package org.igniterealtime.restclient.entity;
 
+
 import jakarta.xml.bind.annotation.XmlRootElement;
 
 import java.util.List;
