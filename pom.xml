@@ -2,7 +2,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>org.igniterealtime</groupId>
+	<groupId>io.github.joy1024</groupId>
 	<artifactId>rest-api-client</artifactId>
 	<version>1.1.6-SNAPSHOT</version>
 	<name>REST API Client for Openfire</name>
@@ -106,14 +106,14 @@
 	</repositories>
 
 	<distributionManagement>
-		<repository>
-			<id>okstar-nexus-releases</id>
-			<url>https://nexus.okstar.org.cn/repository/maven-releases/</url>
-		</repository>
 		<snapshotRepository>
-			<id>okstar-nexus-snapshots</id>
-			<url>https://nexus.okstar.org.cn/repository/maven-snapshots/</url>
+			<id>central</id>
+			<url>https://central.sonatype.com/repository/maven-snapshots/</url>
 		</snapshotRepository>
+		<repository>
+			<id>central</id>
+			<url>https://central.sonatype.com/repository/maven-releases/</url>
+		</repository>
 	</distributionManagement>
 
 	<profiles>

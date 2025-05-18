@@ -7,7 +7,7 @@ The project is available through the central Maven Repository
 #### Maven
 ```xml
 <dependency>
-    <groupId>org.igniterealtime</groupId>
+    <groupId>io.github.joy1024</groupId>
     <artifactId>rest-api-client</artifactId>
     <version>1.1.5</version>
 </dependency>
